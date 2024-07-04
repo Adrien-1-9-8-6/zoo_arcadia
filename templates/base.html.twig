@@ -7,13 +7,6 @@
 			{% endblock %}
 		</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet">
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 		<link
 		href="{{ asset('scss/main.css') }}" rel="stylesheet">
@@ -75,9 +68,37 @@
 				</div>
 			</nav>
 		</header>
-		{% block body %}{% endblock %}
-		<footer>
-			Le footer de mon site
-		</footer>
-	</body>
-</html>
+		<main id="main-page"> {% block body %}{% endblock %}
+			</main>
+			<footer class="bg-dark text-primary text-center footer">
+				<div class="row">
+					<div class="col-12 col-lg-4">
+						<h3>Nos horaires</h3>
+						<p>Du mardi au samedi
+							<br/>
+							De 9h00 à 18h00
+							<br/>
+						</p>
+
+					</div>
+					<div class="col-12 col-lg-4">
+						<h3>Nous trouver</h3>
+						<p>Arcadia
+							<br/>
+							Chemin du Breton
+							<br/>
+							61220 La Bretagne ça nous gagne
+							<br/>
+							0204158962
+							<br/>
+						</p>
+					</div>
+					<div class="col-12 col-lg-4">
+						<h3>Nous contacter</h3>
+						<p>contact@zooarcadia.com</p>
+					</div>
+				</body>
+			</html>
+		</body>
+	</html>
+</footer></body></html>

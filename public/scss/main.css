@@ -5,6 +5,8 @@
  * Copyright 2011-2024 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -31,7 +33,7 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #BE9915;
-  --bs-secondary: #6c757d;
+  --bs-secondary: #1B251B;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
@@ -39,7 +41,7 @@
   --bs-light: #f8f9fa;
   --bs-dark: #6D5A35;
   --bs-primary-rgb: 190, 153, 21;
-  --bs-secondary-rgb: 108, 117, 125;
+  --bs-secondary-rgb: 27, 37, 27;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -47,7 +49,7 @@
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 109, 90, 53;
   --bs-primary-text-emphasis: #4c3d08;
-  --bs-secondary-text-emphasis: #2b2f32;
+  --bs-secondary-text-emphasis: #0b0f0b;
   --bs-success-text-emphasis: #0a3622;
   --bs-info-text-emphasis: #055160;
   --bs-warning-text-emphasis: #664d03;
@@ -55,7 +57,7 @@
   --bs-light-text-emphasis: #495057;
   --bs-dark-text-emphasis: #495057;
   --bs-primary-bg-subtle: #f2ebd0;
-  --bs-secondary-bg-subtle: #e2e3e5;
+  --bs-secondary-bg-subtle: #d1d3d1;
   --bs-success-bg-subtle: #d1e7dd;
   --bs-info-bg-subtle: #cff4fc;
   --bs-warning-bg-subtle: #fff3cd;
@@ -63,7 +65,7 @@
   --bs-light-bg-subtle: #fcfcfd;
   --bs-dark-bg-subtle: #ced4da;
   --bs-primary-border-subtle: #e5d6a1;
-  --bs-secondary-border-subtle: #c4c8cb;
+  --bs-secondary-border-subtle: #a4a8a4;
   --bs-success-border-subtle: #a3cfbb;
   --bs-info-border-subtle: #9eeaf9;
   --bs-warning-border-subtle: #ffe69c;
@@ -72,10 +74,10 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 55, 36, 14;
-  --bs-font-sans-serif: "Baloo";
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: "Baloo 2", sans-serif;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -143,7 +145,7 @@
   --bs-tertiary-bg: #2b3035;
   --bs-tertiary-bg-rgb: 43, 48, 53;
   --bs-primary-text-emphasis: #d8c273;
-  --bs-secondary-text-emphasis: #a7acb1;
+  --bs-secondary-text-emphasis: #767c76;
   --bs-success-text-emphasis: #75b798;
   --bs-info-text-emphasis: #6edff6;
   --bs-warning-text-emphasis: #ffda6a;
@@ -151,7 +153,7 @@
   --bs-light-text-emphasis: #f8f9fa;
   --bs-dark-text-emphasis: #dee2e6;
   --bs-primary-bg-subtle: #261f04;
-  --bs-secondary-bg-subtle: #161719;
+  --bs-secondary-bg-subtle: #050705;
   --bs-success-bg-subtle: #051b11;
   --bs-info-bg-subtle: #032830;
   --bs-warning-bg-subtle: #332701;
@@ -159,7 +161,7 @@
   --bs-light-bg-subtle: #343a40;
   --bs-dark-bg-subtle: #362f27;
   --bs-primary-border-subtle: #725c0d;
-  --bs-secondary-border-subtle: #41464b;
+  --bs-secondary-border-subtle: #101610;
   --bs-success-border-subtle: #0f5132;
   --bs-info-border-subtle: #087990;
   --bs-warning-border-subtle: #997404;
@@ -1947,13 +1949,13 @@ progress {
 
 .table-secondary {
   --bs-table-color: #37240E;
-  --bs-table-bg: #e2e3e5;
-  --bs-table-border-color: #c0bdba;
-  --bs-table-striped-bg: #d9d9da;
+  --bs-table-bg: #d1d3d1;
+  --bs-table-border-color: #b2b0aa;
+  --bs-table-striped-bg: #c9cac7;
   --bs-table-striped-color: #37240E;
-  --bs-table-active-bg: #d1d0d0;
+  --bs-table-active-bg: #c2c2be;
   --bs-table-active-color: #37240E;
-  --bs-table-hover-bg: #d5d5d5;
+  --bs-table-hover-bg: #c5c6c2;
   --bs-table-hover-color: #37240E;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
@@ -3029,19 +3031,19 @@ textarea.form-control-lg {
 
 .btn-secondary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #6c757d;
-  --bs-btn-border-color: #6c757d;
+  --bs-btn-bg: #1B251B;
+  --bs-btn-border-color: #1B251B;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #5c636a;
-  --bs-btn-hover-border-color: #565e64;
-  --bs-btn-focus-shadow-rgb: 130, 138, 145;
+  --bs-btn-hover-bg: #171f17;
+  --bs-btn-hover-border-color: #161e16;
+  --bs-btn-focus-shadow-rgb: 61, 70, 61;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #565e64;
-  --bs-btn-active-border-color: #51585e;
+  --bs-btn-active-bg: #161e16;
+  --bs-btn-active-border-color: #141c14;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(55, 36, 14, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #6c757d;
-  --bs-btn-disabled-border-color: #6c757d;
+  --bs-btn-disabled-bg: #1B251B;
+  --bs-btn-disabled-border-color: #1B251B;
 }
 
 .btn-success {
@@ -3164,19 +3166,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-secondary {
-  --bs-btn-color: #6c757d;
-  --bs-btn-border-color: #6c757d;
+  --bs-btn-color: #1B251B;
+  --bs-btn-border-color: #1B251B;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #6c757d;
-  --bs-btn-hover-border-color: #6c757d;
-  --bs-btn-focus-shadow-rgb: 108, 117, 125;
+  --bs-btn-hover-bg: #1B251B;
+  --bs-btn-hover-border-color: #1B251B;
+  --bs-btn-focus-shadow-rgb: 27, 37, 27;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #6c757d;
-  --bs-btn-active-border-color: #6c757d;
+  --bs-btn-active-bg: #1B251B;
+  --bs-btn-active-border-color: #1B251B;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(55, 36, 14, 0.125);
-  --bs-btn-disabled-color: #6c757d;
+  --bs-btn-disabled-color: #1B251B;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #6c757d;
+  --bs-btn-disabled-border-color: #1B251B;
   --bs-gradient: none;
 }
 
@@ -5732,7 +5734,7 @@ textarea.form-control-lg {
   z-index: var(--bs-tooltip-zindex);
   display: block;
   margin: var(--bs-tooltip-margin);
-  font-family: var(--bs-font-sans-serif);
+  font-family: "Baloo 2", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5842,7 +5844,7 @@ textarea.form-control-lg {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: var(--bs-font-sans-serif);
+  font-family: "Baloo 2", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6850,8 +6852,8 @@ textarea.form-control-lg {
   text-decoration-color: RGBA(var(--bs-secondary-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-secondary:hover, .link-secondary:focus {
-  color: RGBA(86, 94, 100, var(--bs-link-opacity, 1)) !important;
-  text-decoration-color: RGBA(86, 94, 100, var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(22, 30, 22, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(22, 30, 22, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-success {
@@ -11964,5 +11966,64 @@ textarea.form-control-lg {
   }
   .d-print-none {
     display: none !important;
+  }
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+main {
+  margin-bottom: 250px;
+}
+
+h3, .h3 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Cardo", sans-serif;
+}
+
+footer.footer {
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  main {
+    margin-bottom: 550px;
+  }
+  footer {
+    font-size: 2.3rem;
+    /* Taille de police par défaut pour les éléments */
+  }
+  h3, .h3 {
+    font-size: 2.3rem;
+    /* Ajustez la taille des titres h3 */
+  }
+  p {
+    font-size: 2rem;
+    /* Ajustez la taille des paragraphes */
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  main {
+    margin-bottom: 420px;
+  }
+  footer {
+    font-size: 1.5rem;
+    /* Taille de police par défaut pour les éléments */
+  }
+  h3, .h3 {
+    font-size: 1.5rem;
+    /* Ajustez la taille des titres h3 */
+  }
+  p {
+    font-size: 1.3rem;
+    /* Ajustez la taille des paragraphes */
   }
 }/*# sourceMappingURL=main.css.map */

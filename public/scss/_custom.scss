@@ -6,8 +6,8 @@ $primary: #BE9915;
 $secondary: #1B251B;
 $dark: #6D5A35;
 $black: #37240E;
-$font-family-sans-serif: "Baloo";
-$font-family-serif: "Cardo";
+$font-family-base: 'Baloo 2', sans-serif;
+$font-family-secondary: 'Cardo', sans-serif;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
