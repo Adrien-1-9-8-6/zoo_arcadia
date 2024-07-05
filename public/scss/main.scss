@@ -6,11 +6,25 @@
 html {
     position: relative;
     min-height: 100%;
+    background-color: $secondary;
 }
 
 main {
     margin-bottom: 250px;
 }
+
+h1 {
+    font-size: 30px;
+    font-family: $font-family-base;
+    color: $primary;
+    transform: translateY(85px); // Ajustez cette valeur pour déplacer le H1 vers le bas
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000; // Cela ajoute un contour noir plus épais
+}
+
 
 h3 {
     font-size: 16px;
@@ -67,5 +81,67 @@ footer.footer {
     p {
         font-size: 1.3rem;
         /* Ajustez la taille des paragraphes */
+    }
+}
+
+.image-accueil {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/Accueil.png);
+        background-size: cover;
+        background-position: 0% 70%;
+        filter: brightness(0.8);
+    }
+
+    * {
+        //positionner les éléments devant le ::before
+        position: relative;
+    }
+
+    .image-accueil-content {
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .button-container {
+        position: absolute;
+        bottom: -70px; // Ajustez selon vos besoins
+        left: 0; // Modifiez pour centrer les boutons
+        right: 0; // Ajoutez pour centrer les boutons
+        display: flex; // Ajoutez pour centrer les boutons
+        justify-content: center;
+        gap: 60px; // Ajustez cette valeur selon vos besoins
+
+
+
+        .btn-warning {
+            background-color: $primary; // Définissez la variable $yellow dans votre fichier Sass
+            height: 150px; // Ajustez cette valeur selon vos besoins
+            width: 240px;
+            // Autres styles pour votre bouton
+            border: 2px solid darken($primary, 20%); // Ajoute une bordure plus sombre
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, ); // Ajoute une ombre pour l'effet de relief
+
+
+            &:hover {
+                border-width: 4px; // Augmente la taille de la bordure lorsque le bouton est survolé
+                box-shadow: 2px 2px 4px rgb(0, 0, 0); // Réduit l'ombre lorsque le bouton est survolé
+            }
+        }
+    }
+
+    .button-container .btn-warning img {
+        height: 60px; // Ou toute autre taille
+        width: auto; // Cela garantit que le rapport d'aspect est maintenu
     }
 }
