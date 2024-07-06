@@ -26,79 +26,81 @@
 		<header>
 			<nav class="navbar navbar-expand-lg bg-secondary" data-bs-theme="dark">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/">Zoo Arcadia</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-							<li class="nav-item">
-								<a class="nav-link" href="/">Accueil</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									Nos habitats
-								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a class="dropdown-item" href="#">Savane</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">Jungle</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">Marais</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Nos services</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Contact</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Mon compte</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Connexion</a>
-							</li>
-						</ul>
-					</div>
+					<a class="navbar-brand text-primary logo" href="/"><img class="elephant" src="../images/icone_elephant.png" alt="Icone"></br>
+					Zoo Arcadia
+					</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link text-primary" href="/">Accueil</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Nos habitats
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="dropdown-item text-primary" href="#">Savane</a>
+								</li>
+								<li>
+									<a class="dropdown-item text-primary" href="#">Jungle</a>
+								</li>
+								<li>
+									<a class="dropdown-item text-primary" href="#">Marais</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-primary" href="#">Nos services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-primary" href="#">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-primary" href="#">Mon compte</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-primary" href="#">Connexion</a>
+						</li>
+					</ul>
+				</div>
 				</div>
 			</nav>
+
 		</header>
 		<main id="main-page"> {% block body %}{% endblock %}
-			</main>
-			<footer class="bg-black text-primary text-center footer">
-				<div class="row">
-					<div class="col-12 col-lg-4">
-						<h3>Nos horaires</h3>
-						<p>Du mardi au samedi
-							<br/>
-							De 9h00 à 18h00
-							<br/>
-						</p>
+		</main>
+		<footer class="bg-black text-primary text-center footer">
+			<div class="row">
+				<div class="col-12 col-lg-4">
+					<h3>Nos horaires</h3>
+					<h4>Du mardi au samedi
+						<br/>
+						De 9h00 à 18h00
+						<br/>
+					</h4>
 
-					</div>
-					<div class="col-12 col-lg-4">
-						<h3>Nous trouver</h3>
-						<p>Arcadia
-							<br/>
-							Chemin du Breton
-							<br/>
-							61220 La Bretagne ça nous gagne
-							<br/>
-							0204158962
-							<br/>
-						</p>
-					</div>
-					<div class="col-12 col-lg-4">
-						<h3>Nous contacter</h3>
-						<p>contact@zooarcadia.com</p>
-					</div>
-				</body>
-			</html>
-		</body>
-	</html>
-</footer></body></html>
+				</div>
+				<div class="col-12 col-lg-4">
+					<h3>Nous trouver</h3>
+					<h4>Arcadia
+						<br/>
+						Chemin du Breton
+						<br/>
+						61220 La Bretagne ça nous gagne
+						<br/>
+						0204158962
+						<br/>
+					</h4>
+				</div>
+				<div class="col-12 col-lg-4">
+					<h3>Nous contacter</h3>
+					<h4>contact@zooarcadia.com</h4>
+				</div>
+		</footer>
+	</body>
+</html>
+

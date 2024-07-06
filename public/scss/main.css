@@ -11968,14 +11968,13 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-html {
-  position: relative;
-  min-height: 100%;
+body {
   background-color: #1B251B;
-}
-
-main {
-  margin-bottom: 250px;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 h1, .h1 {
@@ -11986,56 +11985,57 @@ h1, .h1 {
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
+h2, .h2 {
+  color: #BE9915;
+  font-family: "Cardo", sans-serif;
+  font-size: 25px;
+}
+
 h3, .h3 {
   font-size: 16px;
 }
 
-p {
+h4, .h4 {
   font-size: 16px;
   font-family: "Cardo", sans-serif;
 }
 
-footer.footer {
-  padding: 15px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+p {
+  font-size: 18px;
+  font-family: "Cardo", sans-serif;
+  color: #A58952;
 }
 
-@media (max-width: 992px) {
-  main {
-    margin-bottom: 550px;
-  }
-  footer {
-    font-size: 2.3rem;
-    /* Taille de police par défaut pour les éléments */
-  }
-  h3, .h3 {
-    font-size: 2.3rem;
-    /* Ajustez la taille des titres h3 */
-  }
-  p {
-    font-size: 2rem;
-    /* Ajustez la taille des paragraphes */
-  }
+.btn-primary {
+  height: 5rem;
+  width: 15rem;
+  font-size: 20px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 5px rgb(0, 0, 0);
 }
-@media (min-width: 992px) and (max-width: 1200px) {
-  main {
-    margin-bottom: 420px;
-  }
-  footer {
-    font-size: 1.5rem;
-    /* Taille de police par défaut pour les éléments */
-  }
-  h3, .h3 {
-    font-size: 1.5rem;
-    /* Ajustez la taille des titres h3 */
-  }
-  p {
-    font-size: 1.3rem;
-    /* Ajustez la taille des paragraphes */
-  }
+
+.configImage {
+  box-shadow: 3px 3px 5px rgb(0, 0, 0);
+  border-radius: 3%;
 }
+
+footer.footer {
+  padding: 15px;
+  bottom: 0;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.elephant {
+  height: 2.5rem;
+  transform: translate(2rem, 0.3rem);
+}
+
 .image-accueil {
   position: relative;
 }
@@ -12055,11 +12055,23 @@ footer.footer {
   position: relative;
 }
 .image-accueil .image-accueil-content {
+  position: relative;
   height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.image-accueil .image-accueil-content::after {
+  content: "";
+  position: absolute;
+  bottom: -8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 5px;
+  background-color: #37240E;
+  border-radius: 10px;
 }
 .image-accueil .button-container {
   position: absolute;
@@ -12084,4 +12096,85 @@ footer.footer {
 .image-accueil .button-container .btn-warning img {
   height: 60px;
   width: auto;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(190, 153, 21, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:hover {
+  background-color: rgba(55, 36, 14, 0.5);
+}
+
+.navbar-toggler {
+  font-size: 50px;
+  /* Augmentez la taille de l'icône du menu */
+  padding: 10px 15px;
+  /* Ajustez le padding si nécessaire */
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.premiereLigne {
+  margin-top: 10rem;
+}
+
+.engagements {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  main {
+    margin-bottom: 550px;
+  }
+  footer {
+    font-size: 2.3rem;
+    /* Taille de police par défaut pour les éléments */
+  }
+  h3, .h3 {
+    font-size: 2.3rem;
+    /* Ajustez la taille des titres h3 */
+  }
+  h2, .h2 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 2rem;
+    /* Ajustez la taille des paragraphes */
+  }
+  .navbar-collapse {
+    font-size: 2.5rem;
+    /* Augmentez la taille du texte du menu */
+    padding: 15px;
+    /* Ajustez le padding si nécessaire */
+  }
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-1.5rem);
+    font-size: 2rem;
+  }
+  .logo .elephant {
+    height: 4rem;
+    transform: translateY(3.8rem);
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  main {
+    margin-bottom: 420px;
+  }
+  footer {
+    font-size: 1.5rem;
+    /* Taille de police par défaut pour les éléments */
+  }
+  h3, .h3 {
+    font-size: 1.5rem;
+    /* Ajustez la taille des titres h3 */
+  }
+  p {
+    font-size: 1.3rem;
+    /* Ajustez la taille des paragraphes */
+  }
 }/*# sourceMappingURL=main.css.map */
