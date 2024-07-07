@@ -12160,6 +12160,9 @@ footer.footer {
     height: 4rem;
     transform: translateY(3.8rem);
   }
+  .btn-warning {
+    font-size: 17px;
+  }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   main {

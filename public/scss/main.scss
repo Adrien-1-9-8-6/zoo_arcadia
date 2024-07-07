@@ -227,6 +227,10 @@ footer.footer {
             transform: translateY(3.8rem); // Ajustez cette valeur pour déplacer le H1 vers le bas
         }
     }
+
+    .btn-warning {
+        font-size: 17px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
