@@ -12180,4 +12180,9 @@ footer.footer {
     font-size: 1.3rem;
     /* Ajustez la taille des paragraphes */
   }
+}
+@media (min-width: 1200px) {
+  .navbar-nav {
+    margin-left: 500px !important;
+  }
 }/*# sourceMappingURL=main.css.map */
