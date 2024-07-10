@@ -176,9 +176,30 @@ footer.footer {
     margin-top: 10rem;
 }
 
+.artyfdg {
+    margin-top: 10rem;
+}
+
 .engagements {
     margin-top: 10rem;
     text-align: center;
+}
+
+.accordion {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.accordiontitle {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 20px;
+    color: $black;
+}
+
+.accordiontext {
+    font-family: 'Cardo', sans-serif;
+    font-size: 20px;
+    color: $primary;
 }
 
 @media (max-width: 992px) {
@@ -230,6 +251,10 @@ footer.footer {
     .btn-warning {
         font-size: 17px;
     }
+
+    .accordiontext {
+        font-size: 25px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -256,6 +281,6 @@ footer.footer {
 @media (min-width: 1200px) {
     .navbar-nav {
 
-        margin-left: 500px !important; // Ajustez cette valeur en fonction de vos besoi
+        margin-left: 500px !important; // Ajustez cette valeur en fonction de vos besoins
         }
 }
