@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ServicesController!{% endblock %}
+
+{% block body %}
+	<div class="image-accueil text-center">
+		<div class="image-accueil-content">
+			<h1>Nos services</h1>
+			<div class="button-container">
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#festindestination';"></br>
+					Le Festin Du Lion
+					</br>
+					</br>
+					<img src="../images/icone_couverts.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#visitedestination';"></br>
+					Visite guidée
+					</br>
+					</br>
+					<img src="../images/icone_chemin.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#traindestination';"></br>
+					L'Arcadia Tchou-Tchou
+					</br>
+					</br>
+					<img src="../images/icone_train.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/#engagementsdestination';"></br>
+					Nos engagements
+					</br>
+					</br>
+					<img src="../images/icone_eco.png" alt="Icone">
+				</button> 
+
+			</div>
+		</div>
+	</div>
+
+<article>
+		<div class="container">
+            <H2 class="premiereLigne text-center" id="festindestination">Le Festin Du Lion</H2>
+            <div class="row row-cols-1 row-cols-lg-2 mt-5">
+                <div class="col align-self-center">
+                    <p>Un coin de savane dans votre assiette, où chaque bouchée rugit de saveur. Nos menus sont tellement bons que nos amis les animaux en sont jaloux. </br> </br>
+                    -Malgré son nom, les herbivores y trouveront aussi tout ce qu’ils désirent. </br>
+                    -Des formules pour vos petits lionceaux seront à votre disposition. </br>
+                    -Notre talentueux chef Africain offrira à vos papilles un dépaysement total. </p>
+                    </br>
+                </div>
+
+                <div class="col mt-2">
+                    <img class="w-100 configImage" src="../images/Restaurant2.png" alt="Restaurant">
+                </div>
+            </div>
+
+            <H2 class="text-center mt-5" id="visitedestination">Visite guidée gratuite</H2>
+            <div class="row row-cols-1 row-cols-lg-2 mt-5">
+                <div class="col mt-2">
+                    <img class="w-100 configImage" src="../images/Guide.png" alt="Guide">
+                </div>
+                <div class="col align-self-center">
+                    <p>Notre zoo a tant à offrir que vous risqueriez d’en être déboussolé. Rassurez-vous ! Nos guides seront présents pour vous aider à retrouver le nord. Ils connaissent les animaux comme leur poche et les moindres recoins d’Arcadia. Gardez votre argent pour vous rassasier au Festin Du Lion, cette visite est totalement gratuite !</p>
+                    </br>
+                </div>
+            </div>
+
+            <H2 class="text-center mt-5" id="traindestination">Visite en petit train</H2>
+            <div class="row row-cols-1 row-cols-lg-2 mt-5">
+                <div class="col align-self-center">
+                    <p>L’Arcadia Tchou-Tchou est notre petit joyaux. Ne vous laissez pas tromper par son coté rustique ! Celui-ci roule entièrement à l’électricité. Il préserve par conséquent l’environement de notre zoo et la santé de nos animaux. Inutile de culpabiliser, vous pourrez l’emprunter sans modération.</p>
+                    </br>
+                </div>
+
+                <div class="col mt-2">
+                    <img class="w-100 configImage" src="../images/Train.png" alt="Train">
+                </div>
+            </div>
+        </div>
+
+        
+{% endblock %}
