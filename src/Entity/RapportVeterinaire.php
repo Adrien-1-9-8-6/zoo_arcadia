@@ -17,9 +17,6 @@ class RapportVeterinaire
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $detail = null;
-
     #[ORM\ManyToOne(inversedBy: 'rapportVeterinaires')]
     #[ORM\JoinColumn(nullable: false)]
     private ?utilisateur $utilisateur = null;
@@ -27,6 +24,9 @@ class RapportVeterinaire
     #[ORM\ManyToOne(inversedBy: 'rapport_veterinaire')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Animal $animal = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $detail = null;
 
     public function getId(): ?int
     {
@@ -41,18 +41,6 @@ class RapportVeterinaire
     public function setDate(\DateTimeInterface $date): static
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getDetail(): ?string
-    {
-        return $this->detail;
-    }
-
-    public function setDetail(string $detail): static
-    {
-        $this->detail = $detail;
 
         return $this;
     }
@@ -77,6 +65,18 @@ class RapportVeterinaire
     public function setAnimal(?Animal $animal): static
     {
         $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getDetail(): ?string
+    {
+        return $this->detail;
+    }
+
+    public function setDetail(?string $detail): static
+    {
+        $this->detail = $detail;
 
         return $this;
     }

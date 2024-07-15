@@ -31,7 +31,8 @@ class Habitat
     #[ORM\OneToMany(targetEntity: animal::class, mappedBy: 'habitat')]
     private Collection $animal;
 
-    #[ORM\OneToOne(mappedBy: 'habitat', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'habitat')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Image $image = null;
 
     public function __construct()
@@ -115,15 +116,11 @@ class Habitat
         return $this->image;
     }
 
-    public function setImage(Image $image): static
+    public function setImage(?Image $image): static
     {
-        // set the owning side of the relation if necessary
-        if ($image->getHabitat() !== $this) {
-            $image->setHabitat($this);
-        }
-
         $this->image = $image;
 
         return $this;
     }
+
 }

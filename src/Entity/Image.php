@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ImageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,11 +17,18 @@ class Image
     private ?int $id = null;
 
     #[ORM\Column(type: Types::BLOB)]
-    private $image_data;
+    private $imageData;
 
-    #[ORM\OneToOne(inversedBy: 'image', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?habitat $habitat = null;
+    /**
+     * @var Collection<int, habitat>
+     */
+    #[ORM\OneToMany(targetEntity: habitat::class, mappedBy: 'image')]
+    private Collection $habitat;
+
+    public function __construct()
+    {
+        $this->habitat = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -28,24 +37,42 @@ class Image
 
     public function getImageData()
     {
-        return $this->image_data;
+        return $this->imageData;
     }
 
-    public function setImageData($image_data): static
+    public function setImageData($imageData): static
     {
-        $this->image_data = $image_data;
+        $this->imageData = $imageData;
 
         return $this;
     }
 
-    public function getHabitat(): ?habitat
+    /**
+     * @return Collection<int, habitat>
+     */
+    public function getHabitat(): Collection
     {
         return $this->habitat;
     }
 
-    public function setHabitat(habitat $habitat): static
+    public function addHabitat(habitat $habitat): static
     {
-        $this->habitat = $habitat;
+        if (!$this->habitat->contains($habitat)) {
+            $this->habitat->add($habitat);
+            $habitat->setImage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHabitat(habitat $habitat): static
+    {
+        if ($this->habitat->removeElement($habitat)) {
+            // set the owning side to null (unless already changed)
+            if ($habitat->getImage() === $this) {
+                $habitat->setImage(null);
+            }
+        }
 
         return $this;
     }
