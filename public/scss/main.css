@@ -12141,6 +12141,14 @@ footer.footer {
   color: #BE9915;
 }
 
+.navbar-collapse {
+  font-size: 1.3rem;
+  /* Augmentez la taille du texte du menu */
+  display: flex;
+  flex-basis: auto;
+  justify-content: flex-end;
+}
+
 @media (max-width: 992px) {
   main {
     margin-bottom: 550px;

@@ -36,10 +36,6 @@ class DashboardController extends AbstractDashboardController
         return $this->redirect($url);
 
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(RoleCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
         $url = $routeBuilder->setController(UtilisateurCrudController::class)->generateUrl();
         return $this->redirect($url);
 
@@ -91,7 +87,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToCrud('Habitat', 'fas fa-list', Habitat::class);
-        yield MenuItem::linkToCrud('Role', 'fas fa-list', Role::class);
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', Utilisateur::class);
         yield MenuItem::linkToCrud('Rapport Vétérinaire', 'fas fa-list', RapportVeterinaire::class);
         yield MenuItem::linkToCrud('Animal', 'fas fa-list', Animal::class);

@@ -16,6 +16,17 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            # ajout pour la connexion utilisateur
+            form_login:
+                # "app_login" is the name of the route created previously
+                login_path: app_login
+                check_path: app_login
+            # fin de l'ajout pour la connexion utilisateur
+            
+            # ajout pour la déconnexion utilisateur
+            logout:
+                path: app_logout
+            # fin de l'ajout pour la déconnexion utilisateur
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -26,8 +37,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_VETERINAIRE, ROLE_EMPLOYE] }
+    #     - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
     security:

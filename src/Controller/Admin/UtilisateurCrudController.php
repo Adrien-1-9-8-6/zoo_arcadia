@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Role;
 use App\Entity\Utilisateur;
+use App\Repository\RoleRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -36,11 +37,37 @@ class UtilisateurCrudController extends AbstractCrudController
             $entityInstance->setPassword($encodedPassword); // Définir le mot de passe haché
         }
 
+        // Astuce pour attribuer le rôle en fonction du label du rôle
+        $roleLabel = $entityInstance->getRole()->getLabel();
+        if ($roleLabel == 'administrateur') {
+            $entityInstance->setRoles(['ROLE_ADMIN']);
+        } elseif ($roleLabel == 'Vétérinaire') {
+            $entityInstance->setRoles(['ROLE_VETERINAIRE']);
+        } else {
+            $entityInstance->setRoles(['ROLE_EMPLOYE']);
+        }
+    
+
         $entityManager->persist($entityInstance);
         $entityManager->flush();
         $entityInstance->eraseCredentials(); //Suppression du mdp en clair une fois haché
     }
     //Fin de l'astuce pour hacher le mdp
+
+    //Astuce pour hacher le mdp quand on change le mdp
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+{
+    if ($entityInstance instanceof Utilisateur) {
+        $plainPassword = $entityInstance->getPassword(); // Obtenir le mot de passe brut
+        $encodedPassword = $this->passwordEncoder->hashPassword($entityInstance, $plainPassword); // Hacher le mot de passe
+        $entityInstance->setPassword($encodedPassword); // Définir le mot de passe haché
+    }
+
+    $entityManager->persist($entityInstance);
+    $entityManager->flush();
+    $entityInstance->eraseCredentials(); //Suppression du mdp en clair une fois haché
+}
+    //Fin de l'astuce pour hacher le mdp quand on change le mdp
 
     //Astuce pour ajouter le role à la création d'un utilisateur.
     public function configureFields(string $pageName): iterable
@@ -50,21 +77,16 @@ class UtilisateurCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('password'),
-            AssociationField::new('role'), // Ajoutez cette ligne pour le champ de sélection de rôle
             // Ajoutez d'autres champs si nécessaire...
+            AssociationField::new('role') // Ajoutez cette ligne pour le champ de sélection de rôle
+            ->setFormTypeOptions([ //suppression de la création du compte admin depuis la dashboard
+                'query_builder' => function (RoleRepository $er) {
+                    return $er->createQueryBuilder('r')
+                        ->where('r.label != :admin')
+                        ->setParameter('admin', 'Administrateur');
+                },
+            ]),
+
         ];
     }
-    //Fin de l'astuce pour ajouter le role à la création d'un utilisateur.
-    
-    
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
 }

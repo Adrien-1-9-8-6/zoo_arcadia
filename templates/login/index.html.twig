@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+
+
+{% block body %}
+
+    <div class="image-accueil text-center">
+		<div class="image-accueil-content">
+			<h1>Connexion</h1>
+			<div class="button-container">
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#festindestination';"></br>
+					Le Festin Du Lion
+					</br>
+					</br>
+					<img src="../images/icone_couverts.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#visitedestination';"></br>
+					Visite guidée
+					</br>
+					</br>
+					<img src="../images/icone_chemin.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#traindestination';"></br>
+					L'Arcadia Tchou-Tchou
+					</br>
+					</br>
+					<img src="../images/icone_train.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/#engagementsdestination';"></br>
+					Nos engagements
+					</br>
+					</br>
+					<img src="../images/icone_eco.png" alt="Icone">
+				</button> 
+
+			</div>
+		</div>
+	</div>
+
+    <div class="container premiereLigne text-center">
+        <h2>Seuls les employés d'Arcadia ont la possibilité de se connecter à notre site. Si vous vous êtes égaré sur cette page, un des boutons ci-dessus vous aidera à retrouver votre chemin</h2>
+    
+
+
+   {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+	<form action="{{ path('app_login') }}" method="post" class="form-signin">
+		<label for="username" class="sr-only"></label>
+		<input type="text" id="username" name="_username" value="{{ last_username }}" required autofocus class="form-control" placeholder="Adresse mail" >
+
+		<label for="password" class="sr-only"></label>
+		<input type="password" id="password" name="_password" required class="form-control" placeholder="Mot de passe">
+
+		<input type="hidden" name="_target_path" value="/admin">
+
+		<button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Connexion</button>
+	</form>
+
+    </div>
+{% endblock %}
