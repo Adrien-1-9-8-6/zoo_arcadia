@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Controller\Admin\AvisCrudController;
 use App\Controller\Admin\ServiceCrudController;
 use App\Controller\Admin\ImageCrudController;
 use App\Controller\Admin\RaceCrudController;
@@ -10,7 +9,6 @@ use App\Controller\Admin\AnimalCrudController;
 use App\Controller\Admin\RapportVeterinaireCrudController;
 use App\Controller\Admin\UtilisateurCrudController;
 use App\Controller\Admin\HabitatCrudController;
-use App\Entity\Avis;
 use App\Entity\Service;
 use App\Entity\Image;
 use App\Entity\Race;
@@ -25,9 +23,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
-class DashboardController extends AbstractDashboardController
+class VeterinaireController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
+    #[Route('/veterinaire', name: 'veterinaire')]
     public function index(): Response
     {
         //return parent::index();
@@ -59,10 +57,6 @@ class DashboardController extends AbstractDashboardController
         $url = $routeBuilder->setController(ServiceCrudController::class)->generateUrl();
         return $this->redirect($url);
 
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(AvisCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
     }
 
     public function configureDashboard(): Dashboard
@@ -82,7 +76,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Race', 'fas fa-list', Race::class);
         yield MenuItem::linkToCrud('Image', 'fas fa-list', Image::class);
         yield MenuItem::linkToCrud('Service', 'fas fa-list', Service::class);
-        yield MenuItem::linkToCrud('Avis', 'fas fa-list', Avis::class);
     }
 
     

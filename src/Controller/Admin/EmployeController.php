@@ -25,18 +25,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
-class DashboardController extends AbstractDashboardController
+class EmployeController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
+    #[Route('/employe', name: 'employe')]
     public function index(): Response
     {
         //return parent::index();
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
         $url = $routeBuilder->setController(HabitatCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(UtilisateurCrudController::class)->generateUrl();
         return $this->redirect($url);
 
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
@@ -76,7 +72,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToCrud('Habitat', 'fas fa-list', Habitat::class);
-        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', Utilisateur::class);
         yield MenuItem::linkToCrud('Rapport Vétérinaire', 'fas fa-list', RapportVeterinaire::class);
         yield MenuItem::linkToCrud('Animal', 'fas fa-list', Animal::class);
         yield MenuItem::linkToCrud('Race', 'fas fa-list', Race::class);

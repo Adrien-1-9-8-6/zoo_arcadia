@@ -6,11 +6,8 @@ use App\Entity\Role;
 use App\Entity\Utilisateur;
 use App\Repository\RoleRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -37,7 +34,7 @@ class UtilisateurCrudController extends AbstractCrudController
             $entityInstance->setPassword($encodedPassword); // Définir le mot de passe haché
         }
 
-        // Astuce pour attribuer le rôle en fonction du label du rôle
+        // Astuce pour attribuer le rôle en fonction du label
         $roleLabel = $entityInstance->getRole()->getLabel();
         if ($roleLabel == 'administrateur') {
             $entityInstance->setRoles(['ROLE_ADMIN']);
@@ -46,7 +43,7 @@ class UtilisateurCrudController extends AbstractCrudController
         } else {
             $entityInstance->setRoles(['ROLE_EMPLOYE']);
         }
-    
+        //
 
         $entityManager->persist($entityInstance);
         $entityManager->flush();
