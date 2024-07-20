@@ -32,13 +32,14 @@ Le projet a été développé en utilisant **Symfony 7** comme principal framewo
 
 Pour installer et configurer ce projet, suivez les étapes ci-dessous :
 
-1. Clonez le dépôt GitHub sur votre machine locale.
-2. Installez Composer et Wampserver.
-3. Exécutez `composer install` pour installer les dépendances du projet.
-4. Configurez votre environnement local en modifiant les fichiers `.env` et `.env.local`.
-5. Lancez Wampserver et créez une nouvelle base de données MySQL avec la commande `php bin/console doctrine:database:create`.
-6. Exécutez `symfony console make:migration` `symfony console doctrine:migrations:migrate` pour créer les tables dans votre base de données.
-7. Lancez le serveur Symfony avec `symfony server:start`.
+1. Clonez le dépôt GitHub sur votre machine locale à partir du terminal VScode `git clone https://github.com/Adrien-1-9-8-6/zoo_arcadia`.
+2. Allez dans le dossier créé `cd zoo_arcadia`
+3. Installez Composer et Wampserver.
+4. Exécutez `composer install` pour installer les dépendances du projet.
+5. Configurez votre environnement local en modifiant les fichiers `.env` et `.env.local`.
+6. Lancez Wampserver et créez une nouvelle base de données MySQL avec la commande `php bin/console doctrine:database:create`.
+7. Importez dans votre base de données le fichier BDDarcadia.sql qui se situe à la racine du projet.
+8. Lancez le serveur Symfony avec `symfony server:start`.
 
 ## Utilisation
 
