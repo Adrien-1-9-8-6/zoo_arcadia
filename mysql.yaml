@@ -1,6 +1,0 @@
-mysql:
-    type: mysql:8.0  # Ajustez la version si nécessaire
-    disk: 1024
-    configuration:
-        schemas:
-            - ZooArcadia  # Remplacez par le nom de votre schéma
