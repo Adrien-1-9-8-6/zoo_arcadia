@@ -16,6 +16,10 @@ runtime:
 #        # uncomment on PHP 7.4+
 #        #opcache.preload: config/preload.php
 
+variables:
+    env:
+        DATABASE_URL: "mysql://Adrien:Studi.1$@127.0.0.1:3306/ZooArcadia?serverVersion=8.0&charset=utf8mb4"
+
 build:
     flavor: none
 
