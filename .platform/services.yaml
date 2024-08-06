@@ -5,9 +5,9 @@ services:
     disk: 2048
     configuration:
       schemas:
-        - main
+        - Development
       endpoints:
         admin:
-          default_schema: main
+          default_schema: Development
 
 
