@@ -1,13 +1,14 @@
 
 services:
-  database:
+  mysql:
     type: mysql:10.2
     disk: 2048
     configuration:
       schemas:
-        - Development
+        - main
       endpoints:
         admin:
-          default_schema: Development
+          default_schema: main
+
 
 
