@@ -1,21 +1,13 @@
 
 services:
-  _defaults:
-    autowire: true
-
-  # Service de base de données
-  My\Project\Database\Connection:
-    class: Doctrine\DBAL\Connection
-    arguments:
-      # Remplacez les valeurs suivantes par vos informations de connexion à la base de données
-      config:
-        driver: 'mysql'
-        dbname: 'ZooArcadia'
-        user: 'Adrien'
-        password: 'Studi.1$'
-        host: '127.0.0.1'
-        port: 3306
-        charset: utf8mb4
-        serverVersion: '8.0'
+  database:
+    type: mysql:10.2
+    disk: 2048
+    configuration:
+      schemas:
+        - main
+      endpoints:
+        admin:
+          default_schema: main
 
 
