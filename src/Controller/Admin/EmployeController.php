@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
+
 class EmployeController extends AbstractDashboardController
 {
     #[Route('/employe', name: 'employe')]
