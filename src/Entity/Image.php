@@ -16,8 +16,8 @@ class Image
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::BLOB)]
-    private $imageData;
+    #[ORM\Column(type: Types::STRING)]
+    private ?string $imageData = null;
 
     /**
      * @var Collection<int, habitat>
@@ -35,12 +35,12 @@ class Image
         return $this->id;
     }
 
-    public function getImageData()
+    public function getImageData(): ?string
     {
         return $this->imageData;
     }
 
-    public function setImageData($imageData): static
+    public function setImageData(?string $imageData): static
     {
         $this->imageData = $imageData;
 
