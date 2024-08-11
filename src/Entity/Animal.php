@@ -24,7 +24,7 @@ class Animal
     /**
      * @var Collection<int, rapportveterinaire>
      */
-    #[ORM\OneToMany(targetEntity: rapportveterinaire::class, mappedBy: 'animal')]
+    #[ORM\OneToMany(targetEntity: RapportVeterinaire::class, mappedBy: 'animal')]
     private Collection $rapport_veterinaire;
 
     #[ORM\ManyToOne(inversedBy: 'animal')]
@@ -34,6 +34,15 @@ class Animal
     #[ORM\ManyToOne(inversedBy: 'animal')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Habitat $habitat = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $imageAnimal = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $nourriture = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $grammage = null;
 
     public function __construct()
     {
@@ -119,6 +128,42 @@ class Animal
     public function setHabitat(?Habitat $habitat): static
     {
         $this->habitat = $habitat;
+
+        return $this;
+    }
+
+    public function getImageAnimal(): ?string
+    {
+        return $this->imageAnimal;
+    }
+
+    public function setImageAnimal(string $imageAnimal): static
+    {
+        $this->imageAnimal = $imageAnimal;
+
+        return $this;
+    }
+
+    public function getNourriture(): ?string
+    {
+        return $this->nourriture;
+    }
+
+    public function setNourriture(string $nourriture): static
+    {
+        $this->nourriture = $nourriture;
+
+        return $this;
+    }
+
+    public function getGrammage(): ?string
+    {
+        return $this->grammage;
+    }
+
+    public function setGrammage(string $grammage): static
+    {
+        $this->grammage = $grammage;
 
         return $this;
     }

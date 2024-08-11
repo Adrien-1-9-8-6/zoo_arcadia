@@ -47,8 +47,8 @@
 <div class="row row-cols-1 row-cols-lg-3  accordion">
     <div class="col">
         <div class="accordion" id="accordionExample1">
-        <h2 class="mb-3 premiereLigne text-center">La savane</h2>
-        <img class="w-100 configImage" src="../images/Lions.png" alt="Lions">
+        <h2 class="mb-3 premiereLigne text-center">{{ habitat1.nom }}</h2>
+        <img class="w-100 configImage" src="/uploads/{{ habitat1.imageData }}" alt="Lions">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne1">
                 <button class="accordion-button accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
@@ -57,7 +57,7 @@
                 </h2>
                 <div id="collapseOne1" class="accordion-collapse collapse bg-black accordiontext" aria-labelledby="headingOne1" data-bs-parent="#accordionExample1">
                 <div class="accordion-body text-center">
-                    L’habitat de la savane imite les plaines ouvertes avec des herbes hautes, des arbustes épars et quelques arbres. Le sol est sec et rocailleux avec des points d’eau. L’espace est vaste pour permettre aux animaux de se déplacer librement, avec des abris pour le repos. Des clôtures discrètes assurent la sécurité, et des plateformes d’observation permettent aux visiteurs de voir les animaux. Des éléments sont ajoutés pour encourager le comportement naturel des animaux.
+                    {{ habitat1.description | raw }}
                 </div>
                 </div>
             </div>
@@ -120,8 +120,8 @@
 
     <div class="col">
         <div class="accordion" id="accordionExample2">
-        <h2 class="mb-3 premiereLigne text-center">La jungle</h2>
-        <img class="w-100 configImage" src="../images/Singes.png" alt="Singes">
+        <h2 class="mb-3 premiereLigne text-center">{{ habitat2.nom }}</h2>
+        <img class="w-100 configImage" src="/uploads/{{ habitat2.imageData }}" alt="Singes">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne2">
                 <button class="accordion-button accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
@@ -130,7 +130,7 @@
                 </h2>
                 <div id="collapseOne2" class="accordion-collapse collapse bg-black accordiontext" data-bs-parent="#accordionExample2">
                 <div class="accordion-body text-center">
-                    L’habitat de la jungle dans est dense avec une variété d’arbres, de plantes et de fleurs tropicales. Le sol est humide et riche, avec des cours d’eau et des bassins. L’espace est structuré avec des zones d’escalade et des cachettes. Des clôtures et des vitrages sécurisés protègent les animaux et les visiteurs. Des plateformes d’observation permettent une vue immersive. Des éléments sont ajoutés pour stimuler le comportement naturel des animaux.
+                    {{ habitat2.description | raw }}
                 </div>
                 </div>
             </div>
@@ -193,8 +193,8 @@
 
     <div class="col">
         <div class="accordion" id="accordionExample3">
-        <h2 class="mb-3 premiereLigne text-center">Le marais</h2>
-        <img class="w-100 configImage" src="../images/Tortues.png" alt="Tortues">
+        <h2 class="mb-3 premiereLigne text-center">{{ habitat3.nom }}</h2>
+        <img class="w-100 configImage" src="/uploads/{{ habitat3.imageData }}" alt="Tortues">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne3">
                 <button class="accordion-button accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3">
@@ -203,7 +203,7 @@
                 </h2>
                 <div id="collapseOne3" class="accordion-collapse collapse bg-black accordiontext" data-bs-parent="#accordionExample3">
                 <div class="accordion-body text-center">
-                    L’habitat marais est caractérisé par des zones d’eau stagnante, des plantes aquatiques et des arbres à feuilles larges. Le sol est boueux avec des zones sèches pour le repos. L’espace est parsemé de cachettes sous l’eau et sur terre. Des clôtures et des vitrages sécurisés protègent les animaux et les visiteurs. Des plateformes d’observation offrent une vue sur l’habitat. Des éléments sont ajoutés pour encourager le comportement naturel des animaux.
+                    {{ habitat3.description | raw }}
                 </div>
                 </div>
             </div>

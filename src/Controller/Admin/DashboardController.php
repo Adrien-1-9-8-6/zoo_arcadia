@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Controller\Admin\AvisCrudController;
 use App\Controller\Admin\ServiceCrudController;
-use App\Controller\Admin\ImageCrudController;
 use App\Controller\Admin\RaceCrudController;
 use App\Controller\Admin\AnimalCrudController;
 use App\Controller\Admin\RapportVeterinaireCrudController;
@@ -12,7 +11,6 @@ use App\Controller\Admin\UtilisateurCrudController;
 use App\Controller\Admin\HabitatCrudController;
 use App\Entity\Avis;
 use App\Entity\Service;
-use App\Entity\Image;
 use App\Entity\Race;
 use App\Entity\Animal;
 use App\Entity\RapportVeterinaire;
@@ -53,10 +51,6 @@ class DashboardController extends AbstractDashboardController
         return $this->redirect($url);
 
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(ImageCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
         $url = $routeBuilder->setController(ServiceCrudController::class)->generateUrl();
         return $this->redirect($url);
 
@@ -81,7 +75,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Rapport Vétérinaire', 'fas fa-list', RapportVeterinaire::class);
         yield MenuItem::linkToCrud('Animal', 'fas fa-list', Animal::class);
         yield MenuItem::linkToCrud('Race', 'fas fa-list', Race::class);
-        yield MenuItem::linkToCrud('Image', 'fas fa-list', Image::class);
         yield MenuItem::linkToCrud('Service', 'fas fa-list', Service::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-list', Avis::class);
     }

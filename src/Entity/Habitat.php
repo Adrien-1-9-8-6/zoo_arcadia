@@ -28,12 +28,11 @@ class Habitat
     /**
      * @var Collection<int, animal>
      */
-    #[ORM\OneToMany(targetEntity: animal::class, mappedBy: 'habitat')]
+    #[ORM\OneToMany(targetEntity: Animal::class, mappedBy: 'habitat')]
     private Collection $animal;
 
-    #[ORM\ManyToOne(inversedBy: 'habitat')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Image $image = null;
+    #[ORM\Column(length: 255)]
+    private ?string $imageData = null;
 
     public function __construct()
     {
@@ -111,14 +110,14 @@ class Habitat
         return $this;
     }
 
-    public function getImage(): ?Image
+    public function getImageData(): ?string
     {
-        return $this->image;
+        return $this->imageData;
     }
 
-    public function setImage(?Image $image): static
+    public function setImageData(string $imageData): static
     {
-        $this->image = $image;
+        $this->imageData = $imageData;
 
         return $this;
     }

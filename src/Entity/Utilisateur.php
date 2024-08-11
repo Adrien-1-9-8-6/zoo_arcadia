@@ -40,14 +40,14 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $prenom = null;
 
-    #[ORM\ManyToOne(inversedBy: 'utilisateurs')]
+    #[ORM\ManyToOne(inversedBy: 'Utilisateurs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?role $role = null;
 
     /**
      * @var Collection<int, RapportVeterinaire>
      */
-    #[ORM\OneToMany(targetEntity: RapportVeterinaire::class, mappedBy: 'utilisateur')]
+    #[ORM\OneToMany(targetEntity: RapportVeterinaire::class, mappedBy: 'Utilisateur')]
     private Collection $rapportVeterinaires;
 
     public function __construct()
