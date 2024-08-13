@@ -1,0 +1,35 @@
+{# templates/admin/dashboard.html.twig #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content %}
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            padding: 8px; /* Ajustez la valeur de padding selon vos besoins */
+            text-align: left;
+            border-bottom: 1px solid #ddd; /* Optionnel pour les lignes horizontales */
+        }
+    </style>
+
+    <h1>Clics sur les Animaux</h1></br>
+    <table>
+        <thead>
+            <tr>
+                <th>Animal</th>
+                <th>Nombre de Clics</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for animal, count in counters %}
+                <tr>
+                    <td>{{ animal }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

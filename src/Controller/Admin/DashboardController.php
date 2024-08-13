@@ -2,13 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Controller\Admin\AvisCrudController;
-use App\Controller\Admin\ServiceCrudController;
-use App\Controller\Admin\RaceCrudController;
-use App\Controller\Admin\AnimalCrudController;
-use App\Controller\Admin\RapportVeterinaireCrudController;
-use App\Controller\Admin\UtilisateurCrudController;
-use App\Controller\Admin\HabitatCrudController;
 use App\Entity\Avis;
 use App\Entity\Service;
 use App\Entity\Race;
@@ -21,43 +14,28 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-
 
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        //return parent::index();
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(HabitatCrudController::class)->generateUrl();
-        return $this->redirect($url);
+        $counters = $this->getCounters();
 
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(UtilisateurCrudController::class)->generateUrl();
-        return $this->redirect($url);
+        return $this->render('admin/dashboard.html.twig', [
+            'counters' => $counters,
+        ]);
+    }
 
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(RapportVeterinaireCrudController::class)->generateUrl();
-        return $this->redirect($url);
+    private function getCounters(): array
+    {
+        $file = 'counters.json';
+        if (file_exists($file)) {
+            $data = json_decode(file_get_contents($file), true);
+            return $data['animal_clicks'] ?? [];
+        }
 
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(AnimalCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(RaceCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(ServiceCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(AvisCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
+        return [];
     }
 
     public function configureDashboard(): Dashboard
@@ -69,7 +47,6 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToCrud('Habitat', 'fas fa-list', Habitat::class);
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', Utilisateur::class);
         yield MenuItem::linkToCrud('Rapport Vétérinaire', 'fas fa-list', RapportVeterinaire::class);
@@ -78,6 +55,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Service', 'fas fa-list', Service::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-list', Avis::class);
     }
-
-    
 }
+

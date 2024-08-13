@@ -4,98 +4,116 @@
 
 {% block body %}
 
-	<div class="image-accueil text-center">
-		<div class="image-accueil-content">
-			<h1>Nos habitats</h1>
-			<div class="button-container">
+    <div class="image-accueil text-center">
+        <div class="image-accueil-content">
+            <h1>Nos habitats</h1>
+            <div class="button-container">
 
-				<button class="btn btn-warning" onclick="window.location.href = '/services#festindestination';"></br>
-					Le Festin Du Lion
-					</br>
-					</br>
-					<img src="../images/icone_couverts.png" alt="Icone">
-				</button>
+                <button class="btn btn-warning" onclick="window.location.href = '/services#festindestination';"></br>
+                    Le Festin Du Lion
+                    </br>
+                    </br>
+                    <img src="../images/icone_couverts.png" alt="Icone">
+                </button>
 
+                <button class="btn btn-warning" onclick="window.location.href = '/services#visitedestination';"></br>
+                    Visite guidée
+                    </br>
+                    </br>
+                    <img src="../images/icone_chemin.png" alt="Icone">
+                </button>
 
-				<button class="btn btn-warning" onclick="window.location.href = '/services#visitedestination';"></br>
-					Visite guidée
-					</br>
-					</br>
-					<img src="../images/icone_chemin.png" alt="Icone">
-				</button>
+                <button class="btn btn-warning" onclick="window.location.href = '/services#traindestination';"></br>
+                    L'Arcadia Tchou-Tchou
+                    </br>
+                    </br>
+                    <img src="../images/icone_train.png" alt="Icone">
+                </button>
 
+                <button class="btn btn-warning" onclick="window.location.href = '/#engagementsdestination';"></br>
+                    Nos engagements
+                    </br>
+                    </br>
+                    <img src="../images/icone_eco.png" alt="Icone">
+                </button> 
 
-				<button class="btn btn-warning" onclick="window.location.href = '/services#traindestination';"></br>
-					L'Arcadia Tchou-Tchou
-					</br>
-					</br>
-					<img src="../images/icone_train.png" alt="Icone">
-				</button>
+            </div>
+        </div>
+    </div>
 
-
-				<button class="btn btn-warning" onclick="window.location.href = '/#engagementsdestination';"></br>
-					Nos engagements
-					</br>
-					</br>
-					<img src="../images/icone_eco.png" alt="Icone">
-				</button> 
-
-			</div>
-		</div>
-	</div>
-
-<div class="row row-cols-1 row-cols-lg-3 accordion">
-    {% for habitat in habitats %}
-        <div class="col">
-            <div class="accordion" id="accordionExample{{ loop.index }}">
-                <h2 class="mb-3 premiereLigne text-center">{{ habitat.nom }}</h2>
-                <img class="w-100 configImage" src="/uploads/{{ habitat.imageData }}" alt="{{ habitat.nom }}">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne{{ loop.index }}">
-                        <button class="accordion-button accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne{{ loop.index }}">
-                            Description
-                        </button>
-                    </h2>
-                    <div id="collapseOne{{ loop.index }}" class="accordion-collapse collapse bg-black accordiontext" aria-labelledby="headingOne{{ loop.index }}" data-bs-parent="#accordionExample{{ loop.index }}">
-                        <div class="accordion-body text-center">
-                            {{ habitat.description | raw }}
-                        </div>
-                    </div>
-                </div>
-                {% set grouped_animals = {} %}
-                {% for animal in animals %}
-                    {% if animal.habitat == habitat %}
-                        {% set race_label = animal.race.label %}
-                        {% if grouped_animals[race_label] is not defined %}
-                            {% set grouped_animals = grouped_animals | merge({ (race_label): [] }) %}
-                        {% endif %}
-                        {% set grouped_animals = grouped_animals | merge({ (race_label): grouped_animals[race_label] | merge([animal]) }) %}
-                    {% endif %}
-                {% endfor %}
-                {% for race_label, animals in grouped_animals %}
+    <div class="row row-cols-1 row-cols-lg-3 accordion">
+        {% for habitat in habitats %}
+            <div class="col">
+                <div class="accordion" id="accordionExample{{ loop.index }}">
+                    <h2 class="mb-3 premiereLigne text-center">{{ habitat.nom }}</h2>
+                    <img class="w-100 configImage" src="/uploads/{{ habitat.imageData }}" alt="{{ habitat.nom }}">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading{{ loop.parent.loop.index }}{{ loop.index }}">
-                            <button class="accordion-button collapsed accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.parent.loop.index }}{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.parent.loop.index }}{{ loop.index }}">
-                                {{ race_label }}
+                        <h2 class="accordion-header" id="headingOne{{ loop.index }}">
+                            <button class="accordion-button accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne{{ loop.index }}">
+                                Description
                             </button>
                         </h2>
-                        <div id="collapse{{ loop.parent.loop.index }}{{ loop.index }}" class="accordion-collapse collapse bg-black accordiontext" aria-labelledby="heading{{ loop.parent.loop.index }}{{ loop.index }}" data-bs-parent="#accordionExample{{ loop.parent.loop.index }}">
-                            <div class="accordion-body">
-                                {% for animal in animals %}
-                                    <img class="w-100 configImage" src="/uploads/{{ animal.imageAnimal }}" alt="{{ animal.race.label }}">
-                                    <u>Prénom</u> : {{ animal.prenom }} </br>
-                                    <u>Etat</u> : {{ animal.etat }} </br>
-                                    <u>Nourriture</u> : {{ animal.nourriture }} </br>
-                                    <u>Grammage</u> : {{ animal.grammage }} </br>
-                                {% endfor %}
+                        <div id="collapseOne{{ loop.index }}" class="accordion-collapse collapse bg-black accordiontext" aria-labelledby="headingOne{{ loop.index }}" data-bs-parent="#accordionExample{{ loop.index }}">
+                            <div class="accordion-body text-center">
+                                {{ habitat.description | raw }}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                    {% set grouped_animals = {} %}
+                    {% for animal in animals %}
+                        {% if animal.habitat == habitat %}
+                            {% set race_label = animal.race.label %}
+                            {% if grouped_animals[race_label] is not defined %}
+                                {% set grouped_animals = grouped_animals | merge({ (race_label): [] }) %}
+                            {% endif %}
+                            {% set grouped_animals = grouped_animals | merge({ (race_label): grouped_animals[race_label] | merge([animal]) }) %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for race_label, animals in grouped_animals %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading{{ loop.parent.loop.index }}{{ loop.index }}">
+                                <button class="accordion-button collapsed accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.parent.loop.index }}{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.parent.loop.index }}{{ loop.index }}" onclick="incrementCounter('{{ race_label }}')">
+                                    {{ race_label }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{ loop.parent.loop.index }}{{ loop.index }}" class="accordion-collapse collapse bg-black accordiontext" aria-labelledby="heading{{ loop.parent.loop.index }}{{ loop.index }}" data-bs-parent="#accordionExample{{ loop.parent.loop.index }}">
+                                <div class="accordion-body">
+                                    {% for animal in animals %}
+                                        <img class="w-100 configImage" src="/uploads/{{ animal.imageAnimal }}" alt="{{ animal.race.label }}">
+                                        <u>Prénom</u> : {{ animal.prenom }} </br>
+                                        <u>Etat</u> : {{ animal.etat }} </br>
+                                        <u>Nourriture</u> : {{ animal.nourriture }} </br>
+                                        <u>Grammage</u> : {{ animal.grammage }} </br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
+
+<script>
+function incrementCounter(animal) {
+    console.log('incrementCounter called for:', animal);
+    fetch('/increment_counter', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ animal: animal })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Counter updated:', data);
+    })
+    .catch(error => {
+        console.error('Error updating counter:', error);
+    });
+}
+</script>
 
 
 {% endblock %}
+
