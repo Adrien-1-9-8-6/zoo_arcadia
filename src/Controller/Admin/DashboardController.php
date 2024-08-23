@@ -20,8 +20,10 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        // Appelle la méthode getCounters pour obtenir les compteurs de clics des animaux
         $counters = $this->getCounters();
 
+        // Rend la vue 'admin/dashboard.html.twig' en passant les compteurs de clics comme variable
         return $this->render('admin/dashboard.html.twig', [
             'counters' => $counters,
         ]);
@@ -29,12 +31,19 @@ class DashboardController extends AbstractDashboardController
 
     private function getCounters(): array
     {
+        // Chemin vers le fichier counters.json
         $file = 'counters.json';
+        
+        // Vérifie si le fichier counters.json existe
         if (file_exists($file)) {
+            // Lit le contenu du fichier counters.json et le décode en tableau associatif PHP
             $data = json_decode(file_get_contents($file), true);
+            
+            // Retourne les compteurs de clics des animaux, ou un tableau vide si la clé 'animal_clicks' n'existe pas
             return $data['animal_clicks'] ?? [];
         }
 
+        // Si le fichier counters.json n'existe pas, retourne un tableau vide
         return [];
     }
 

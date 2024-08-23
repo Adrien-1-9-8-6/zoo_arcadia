@@ -96,7 +96,6 @@
 
 <script>
 function incrementCounter(animal) {
-    console.log('incrementCounter called for:', animal);
     fetch('/increment_counter', {
         method: 'POST',
         headers: {
@@ -105,9 +104,6 @@ function incrementCounter(animal) {
         body: JSON.stringify({ animal: animal })
     })
     .then(response => response.json())
-    .then(data => {
-        console.log('Counter updated:', data);
-    })
     .catch(error => {
         console.error('Error updating counter:', error);
     });
