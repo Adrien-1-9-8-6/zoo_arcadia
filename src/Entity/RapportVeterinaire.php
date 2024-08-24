@@ -19,7 +19,7 @@ class RapportVeterinaire
 
     #[ORM\ManyToOne(inversedBy: 'rapportVeterinaires')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?utilisateur $utilisateur = null;
+    private ?Utilisateur $utilisateur = null;
 
     #[ORM\ManyToOne(inversedBy: 'rapport_veterinaire')]
     #[ORM\JoinColumn(nullable: false)]
@@ -45,12 +45,12 @@ class RapportVeterinaire
         return $this;
     }
 
-    public function getUtilisateur(): ?utilisateur
+    public function getUtilisateur(): ?Utilisateur
     {
         return $this->utilisateur;
     }
 
-    public function setUtilisateur(?utilisateur $utilisateur): static
+    public function setUtilisateur(?Utilisateur $utilisateur): static
     {
         $this->utilisateur = $utilisateur;
 
