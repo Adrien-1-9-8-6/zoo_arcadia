@@ -1,0 +1,16 @@
+# config/packages/easy_admin.yaml
+easy_admin:
+    entities:
+        Animal:
+            class: App\Entity\Animal
+            form:
+                fields:
+                    - { property: 'prenom' }
+                    - { property: 'etat' }
+                    - { property: 'race', type: 'EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType', type_options: { class: 'App\Entity\Race' } }
+        Race:
+            class: App\Entity\Race
+            form:
+                fields:
+                    - { property: 'label' }
+                    - { property: 'animal', type: 'collection', type_options: { entry_type: 'App\Form\AnimalType', allow_add: true, by_reference: false } }

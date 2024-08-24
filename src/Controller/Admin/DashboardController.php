@@ -2,17 +2,8 @@
 
 namespace App\Controller\Admin;
 
-use App\Controller\Admin\AvisCrudController;
-use App\Controller\Admin\ServiceCrudController;
-use App\Controller\Admin\ImageCrudController;
-use App\Controller\Admin\RaceCrudController;
-use App\Controller\Admin\AnimalCrudController;
-use App\Controller\Admin\RapportVeterinaireCrudController;
-use App\Controller\Admin\UtilisateurCrudController;
-use App\Controller\Admin\HabitatCrudController;
 use App\Entity\Avis;
 use App\Entity\Service;
-use App\Entity\Image;
 use App\Entity\Race;
 use App\Entity\Animal;
 use App\Entity\RapportVeterinaire;
@@ -23,46 +14,37 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        //return parent::index();
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(HabitatCrudController::class)->generateUrl();
-        return $this->redirect($url);
+        // Appelle la méthode getCounters pour obtenir les compteurs de clics des animaux
+        $counters = $this->getCounters();
 
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(UtilisateurCrudController::class)->generateUrl();
-        return $this->redirect($url);
+        // Rend la vue 'admin/dashboard.html.twig' en passant les compteurs de clics comme variable
+        return $this->render('admin/dashboard.html.twig', [
+            'counters' => $counters,
+        ]);
+    }
 
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(RapportVeterinaireCrudController::class)->generateUrl();
-        return $this->redirect($url);
+    private function getCounters(): array
+    {
+        // Chemin vers le fichier counters.json
+        $file = 'counters.json';
+        
+        // Vérifie si le fichier counters.json existe
+        if (file_exists($file)) {
+            // Lit le contenu du fichier counters.json et le décode en tableau associatif PHP
+            $data = json_decode(file_get_contents($file), true);
+            
+            // Retourne les compteurs de clics des animaux, ou un tableau vide si la clé 'animal_clicks' n'existe pas
+            return $data['animal_clicks'] ?? [];
+        }
 
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(AnimalCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(RaceCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(ImageCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(ServiceCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(AvisCrudController::class)->generateUrl();
-        return $this->redirect($url);
-
+        // Si le fichier counters.json n'existe pas, retourne un tableau vide
+        return [];
     }
 
     public function configureDashboard(): Dashboard
@@ -74,16 +56,13 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToCrud('Habitat', 'fas fa-list', Habitat::class);
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', Utilisateur::class);
         yield MenuItem::linkToCrud('Rapport Vétérinaire', 'fas fa-list', RapportVeterinaire::class);
         yield MenuItem::linkToCrud('Animal', 'fas fa-list', Animal::class);
         yield MenuItem::linkToCrud('Race', 'fas fa-list', Race::class);
-        yield MenuItem::linkToCrud('Image', 'fas fa-list', Image::class);
         yield MenuItem::linkToCrud('Service', 'fas fa-list', Service::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-list', Avis::class);
     }
-
-    
 }
+

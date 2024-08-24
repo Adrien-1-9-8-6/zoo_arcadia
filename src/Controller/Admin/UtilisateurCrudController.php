@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
+
 class UtilisateurCrudController extends AbstractCrudController
 {
     //Astuce pour hacher le mdp
@@ -74,8 +75,7 @@ class UtilisateurCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('password'),
-            // Ajoutez d'autres champs si nécessaire...
-            AssociationField::new('role') // Ajoutez cette ligne pour le champ de sélection de rôle
+            AssociationField::new('role') //Ligne pour le champ de sélection de rôle
             ->setFormTypeOptions([ //suppression de la création du compte admin depuis la dashboard
                 'query_builder' => function (RoleRepository $er) {
                     return $er->createQueryBuilder('r')
