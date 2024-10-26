@@ -22,14 +22,46 @@
                 <th>Nombre de Clics</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="animal-clicks-table">
+            <!-- Boucle sur chaque paire animal, count dans le dictionnaire counters -->
             {% for animal, count in counters %}
                 <tr>
+                    <!-- Crée une cellule pour afficher le nom de l'animal -->
                     <td>{{ animal }}</td>
+                    <!-- Crée une cellule pour afficher le nombre de clics pour cet animal -->
                     <td>{{ count }}</td>
                 </tr>
+            <!-- Fin de la boucle -->
             {% endfor %}
         </tbody>
-    </table>
-{% endblock %}
 
+    </table>
+
+    <script>
+        function fetchAnimalClicks() {
+            // Utilise la fonction fetch pour envoyer une requête HTTP GET à l'URL '/get_counters'
+            fetch('/get_counters')
+                .then(response => response.json()) // Traite la réponse de la requête en la convertissant en JSON
+                .then(data => {
+                    // Sélectionne l'élément du tableau avec l'ID 'animal-clicks-table'
+                    const tableBody = document.getElementById('animal-clicks-table');
+                    // Vide le contenu actuel du tableau
+                    tableBody.innerHTML = '';
+                    // Parcourt les données reçues et crée une nouvelle ligne pour chaque animal et son nombre de clics
+                    for (const [animal, count] of Object.entries(data.animal_clicks)) {
+                        const row = document.createElement('tr'); // Crée une nouvelle ligne de tableau
+                        const animalCell = document.createElement('td'); // Crée une nouvelle cellule pour l'animal
+                        const countCell = document.createElement('td'); // Crée une nouvelle cellule pour le nombre de clics
+                        animalCell.textContent = animal; // Définit le texte de la cellule de l'animal
+                        countCell.textContent = count; // Définit le texte de la cellule du nombre de clics
+                        row.appendChild(animalCell); // Ajoute la cellule de l'animal à la ligne
+                        row.appendChild(countCell); // Ajoute la cellule du nombre de clics à la lign
+                        tableBody.appendChild(row); // Ajoute la ligne complète au corps du tableau
+                    }
+                })
+                .catch(error => console.error('Error fetching animal clicks:', error)); // Affiche une erreur dans la console si la requête échoue
+        }
+
+        setInterval(fetchAnimalClicks, 5000); // Mettre à jour toutes les 5 secondes
+    </script>
+{% endblock %}

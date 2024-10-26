@@ -96,20 +96,19 @@
 
 <script>
 function incrementCounter(animal) {
+    // Utilise la fonction fetch pour envoyer une requête HTTP POST à l'URL '/increment_counter'
     fetch('/increment_counter', {
-        method: 'POST',
+        method: 'POST', // Spécifie que la méthode de la requête est POST
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json' // Indique que le corps de la requête est au format
         },
-        body: JSON.stringify({ animal: animal })
+        body: JSON.stringify({ animal: animal }) // Convertit l'objet JavaScript en chaîne JSON et l'envoie dans le corps de la requête
     })
-    .then(response => response.json())
+    .then(response => response.json()) // Traite la réponse de la requête en la convertissant en JSON
     .catch(error => {
-        console.error('Error updating counter:', error);
+        console.error('Error updating counter:', error); // Affiche une erreur dans la console si la requête échoue
     });
 }
 </script>
 
-
 {% endblock %}
-
