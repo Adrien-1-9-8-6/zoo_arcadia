@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+	<div class="image-accueil text-center">
+		<div class="image-accueil-content">
+			<h1>Découvrir ce que la planète a de plus beau à offrir !</h1>
+			<div class="button-container">
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#festindestination';"></br>
+					Le Festin Du Lion
+					</br>
+					</br>
+					<img src="../images/icone_couverts.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#visitedestination';"></br>
+					Visite guidée
+					</br>
+					</br>
+					<img src="../images/icone_chemin.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/services#traindestination';"></br>
+					L'Arcadia Tchou-Tchou
+					</br>
+					</br>
+					<img src="../images/icone_train.png" alt="Icone">
+				</button>
+
+
+				<button class="btn btn-warning" onclick="window.location.href = '/#engagementsdestination';"></br>
+					Nos engagements
+					</br>
+					</br>
+					<img src="../images/icone_eco.png" alt="Icone">
+				</button> 
+
+			</div>
+		</div>
+	</div>
+
+    <article>
+		<div class="container">
+				<H2 class="premiereLigne text-center" id="engagementsdestination">Vidéo de présentation</H2>
+				<div class="row row-cols-1 row-cols-lg-2 mt-5">
+					<div class="col">
+						<p>Voici une vidéo apportant des détails concernant les fonctions de mon application web. </p>
+						</br>
+                        <h2>Logiciels utilisés</h2>
+                        <p>Visual Studio Code
+                        (VSCode) pour l’édition de code, Figma pour le design, MySQL Workbench pour la
+                        gestion de bases de données, et Adobe Firefly pour les créations graphiques</p>
+                        </br>
+                        <h2>Frameworks utilisés</h2>
+                        <p>Symfony pour le
+                        développement PHP, Twig pour le templating, EasyAdmin pour la gestion
+                        d’administration, Bootstrap pour le design responsive, Sass pour les styles avancés,
+                        Doctrine pour l’ORM, et Composer pour la gestion des dépendances.</p>
+                        </br>
+                        <h2>Serveur local</h2>
+                        <p>WampServer pour tester et développer localement.</p>
+                        </br>
+                        <h2>Gestionnaire de version</h2>
+                        <p>GitHub pour le contrôle de version et la collaboration</p>
+                        </br>
+                        <h2>Outil de gestion de projet</h2>
+                        <p>J’ai configuré un tableau Kanban pour organiser et suivre les tâches du projet</p>
+                        </br>
+                        <h2>Extensions installées</h2>
+                        <p>J’ai ajouté plusieurs extensions à VSCode comme PHP
+                        Intelephense pour l’auto-complétion et l’analyse de code, Live Sass Compiler pour
+                        compiler le Sass en CSS, PHP Server pour tester les scripts PHP, Twig Language 2
+                        pour le support de Twig, et VSCodepdf pour visualiser les fichiers PDF.</p>
+					</div>
+
+					<div class="col mt-2">
+						<iframe src="https://player.vimeo.com/video/1042536240?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="width:100%; height:400px;" title="Présentation projet"></iframe>
+					</div>
+				</div>
+
+{% endblock %}
