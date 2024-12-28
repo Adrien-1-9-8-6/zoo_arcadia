@@ -62,7 +62,7 @@
 					</div>
 				</div>
 				<div class="mt-4">
-					<a href="#" class="btn btn-primary">En savoir plus</a>
+					<a href="#" class="btn btn-primary">Vidéo présentation</a>
 				</div>
 				
 				
@@ -88,6 +88,89 @@
 				</div>
 		</div>
 	</article>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        
+		<p class="modal-text">Vous trouverez ci-dessous une vidéo de démonstration de mon application, incluant notamment la partie Back-end. Sinon, vous pouvez tester directement mon application en <a href="/" id="redirect-link">cliquant ici</a></p>
+        <div class="video-container">
+            <iframe src="https://player.vimeo.com/video/1042536240?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="width:100%; height:400px;" title="Présentation projet"></iframe>
+        </div>
+        <span class="close">×</span>
+    </div>
+</div>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .video-container {
+        margin-bottom: 20px;
+    }
+
+    .modal-text {
+        color: #37240E; /* Ajout de la couleur de la police */
+    }
+
+    .close {
+        color: $primary;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        var redirectLink = document.getElementById("redirect-link");
+
+        modal.style.display = "block";
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        redirectLink.onclick = function() {
+            window.location.href = "/";
+        }
+    };
+</script>
 
 
 
