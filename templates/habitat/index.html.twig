@@ -46,7 +46,7 @@
             <div class="col">
                 <div class="accordion" id="accordionExample{{ loop.index }}">
                     <h2 class="mb-3 premiereLigne text-center">{{ habitat.nom }}</h2>
-                    <img class="w-100 configImage" src="/uploads/{{ habitat.imageData }}" alt="{{ habitat.nom }}">
+                    <img class="w-100 configImage" src="{{ asset('images/' ~ habitat.imageData) }}" alt="{{ habitat.nom }}">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne{{ loop.index }}">
                             <button class="accordion-button accordiontitle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne{{ loop.index }}">
@@ -79,7 +79,7 @@
                             <div id="collapse{{ loop.parent.loop.index }}{{ loop.index }}" class="accordion-collapse collapse bg-black accordiontext" aria-labelledby="heading{{ loop.parent.loop.index }}{{ loop.index }}" data-bs-parent="#accordionExample{{ loop.parent.loop.index }}">
                                 <div class="accordion-body">
                                     {% for animal in animals %}
-                                        <img class="w-100 configImage" src="/uploads/{{ animal.imageAnimal }}" alt="{{ animal.race.label }}">
+                                        <img class="w-100 configImage" src="{{ asset('images/' ~ animal.imageAnimal) }}" alt="{{ animal.race.label }}">
                                         <u>Prénom</u> : {{ animal.prenom }} </br>
                                         <u>Etat</u> : {{ animal.etat }} </br>
                                         <u>Nourriture</u> : {{ animal.nourriture }} </br>

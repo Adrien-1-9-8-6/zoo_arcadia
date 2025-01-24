@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\Animal;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class AnimalCrudController extends AbstractCrudController
@@ -18,11 +17,12 @@ class AnimalCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            ImageField::new('imageAnimal', 'Image Animal')
-                ->setBasePath('uploads/')
-                ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setRequired(true),
+            TextField::new('imageAnimal', 'Nom du fichier de l\'image')
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'maxlength' => 255
+                    ]
+                ]),
             TextField::new('prenom', 'Prénom')
                 ->setFormTypeOptions([
                     'attr' => [
